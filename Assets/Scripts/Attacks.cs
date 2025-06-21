@@ -22,4 +22,7 @@ public class Attack
     public float maxDamage;
     public float attackTime;
     public string animationName;
+    public string soundName;
+    public GameObject hitParticlesPrefab;
+    public GameObject particlesPrefab;
 }
