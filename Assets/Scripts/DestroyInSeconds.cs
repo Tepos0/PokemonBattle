@@ -6,6 +6,6 @@ public class DestroyInSeconds : MonoBehaviour
     private float _destroyAfterSeconds = 2f;
     private void Start()
     {
-        Destroy(gameObject)
+        Destroy(gameObject);
     }
 }

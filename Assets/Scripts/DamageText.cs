@@ -16,6 +16,8 @@ public class DamageText : MonoBehaviour
         _animator.Play(_showAnimationName);
         transform.position = Camera.main.WorldToScreenPoint(damageTarget.target.position);
     }
+    
+}
     [System.Serializable]
     public class DamageTarget
     {
@@ -28,5 +30,3 @@ public class DamageText : MonoBehaviour
     }
         
     }
-    
-}

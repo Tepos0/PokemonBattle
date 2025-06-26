@@ -3,9 +3,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Drawing;
 public class BattleManager : MonoBehaviour
 {
     [SerializeField]
+    private Animator _animator;
+    [SerializeField]
+    private Image _image;
     private int _numberOfFighters = 2;
     [SerializeField]
     private UnityEvent _onFigthersReady;
@@ -29,6 +33,7 @@ public class BattleManager : MonoBehaviour
             StopCoroutine(_battleCoroutine);
             _battleCoroutine = null;
         }
+        _onBattleFinished?.Invoke();
     }
     private void CheckFighters()
     {
@@ -36,7 +41,7 @@ public class BattleManager : MonoBehaviour
         {
             return;
         }
-        _onFigthersReady?.Invoke();
+        _onBattleStarted?.Invoke();
     }
     public void StartBattle()
     {
@@ -64,12 +69,12 @@ public class BattleManager : MonoBehaviour
             float damage = Random.Range(attack.minDamage, attack.maxDamage);
             GameObject defendParticles = Instantiate(attack.hitParticlesPrefab, defender.transform.position, Quaternion.identity);
             defendParticles.transform.SetParent(defender.transform);
-            _damageTarget.SetDamageTarget(defender.transform, damage);
+            _damageTarget.SetDamageTarget(damage, defender.transform);
             defender.health.TakeDamage(_damageTarget);
-            if (defender.Health.CurrentHealth <= 0)
+            if (defender.health.CurrentHealth <= 0)
             {
-                _fighters.Remove(defender);
-            }
+                RemoveFighter(defender);
+            }   
             yield return new WaitForSeconds(1f);
         }
         _onBattleFinished?.Invoke();
