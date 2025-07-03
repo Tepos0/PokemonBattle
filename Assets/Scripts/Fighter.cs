@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,8 @@ public class Fighter : MonoBehaviour
     private Attacks _attacks;
     public Health health => _health;
     public Attacks Attacks => _attacks;
+    public String _winSoundName = "winsound";
+    public string _winAnimationName = "Win";
     public Animator CharacterAnimator => _characterAnimator;
     [SerializeField]
     private UnityEvent _onFighterInitialized;
