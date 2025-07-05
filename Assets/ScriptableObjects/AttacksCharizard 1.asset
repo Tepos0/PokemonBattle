@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b944b72e782908045ba5fafd8d4c8f56, type: 3}
   m_Name: AttacksCharizard 1
   m_EditorClassIdentifier: 
-  attacks: []
+  attacks:
+  - attackName: Dragon breath
+    minDamage: 10
+    maxDamage: 100
+    attackTime: 2
+    animationName: 'Attack '
+    soundName: claw
+    hitParticlesPrefab: {fileID: 8764043878647920493, guid: c4ed38c72957f2241ad144a1614956d9,
+      type: 3}
+    particlesPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+      type: 3}
+  - attackName: Fire blast
+    minDamage: 20
+    maxDamage: 100
+    attackTime: 1
+    animationName: Damage
+    soundName: Fire
+    hitParticlesPrefab: {fileID: 2504214343621411470, guid: 3ed0d324122d7b24eaec75c55c74aafc,
+      type: 3}
+    particlesPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+      type: 3}

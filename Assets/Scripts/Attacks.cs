@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attacks",menuName = "Scritable Objects/Attacks")]
+[CreateAssetMenu(fileName = "Attacks", menuName = "Scriptable Objects/Attacks")]
 public class Attacks : ScriptableObject
 {
     public Attack[] attacks;
@@ -15,14 +15,16 @@ public class Attacks : ScriptableObject
         return attacks[randomIndex];
     }
 }
+
 [System.Serializable]
 public class Attack
 {
+    public string attackName; //nota
     public float minDamage;
     public float maxDamage;
     public float attackTime;
     public string animationName;
     public string soundName;
-    public GameObject hitParticlesPrefab;
+    public GameObject hitParticlesPrefab; //nota
     public GameObject particlesPrefab;
 }

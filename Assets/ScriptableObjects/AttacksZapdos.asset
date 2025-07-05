@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: AttacksZapdos
   m_EditorClassIdentifier: 
   attacks:
-  - minDamage: 0
-    maxDamage: 0
+  - attackName: Patada rapida
+    minDamage: 20
+    maxDamage: 150
     attackTime: 2
-    animationName: 
-    soundName: 
-    hitParticlesPrefab: {fileID: 0}
-    particlesPrefab: {fileID: 0}
-  - minDamage: 0
-    maxDamage: 0
+    animationName: Attack1
+    soundName: Bolt
+    hitParticlesPrefab: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d,
+      type: 3}
+    particlesPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+      type: 3}
+  - attackName: Thunder bolt
+    minDamage: 10
+    maxDamage: 100
     attackTime: 2
-    animationName: 
-    soundName: 
-    hitParticlesPrefab: {fileID: 0}
-    particlesPrefab: {fileID: 0}
+    animationName: Attack2
+    soundName: Light
+    hitParticlesPrefab: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d,
+      type: 3}
+    particlesPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+      type: 3}

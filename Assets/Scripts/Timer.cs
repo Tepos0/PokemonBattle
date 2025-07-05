@@ -1,26 +1,32 @@
-using System.Collections.Generic;
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Events;
-
 
 public class Timer : MonoBehaviour
 {
     [SerializeField]
     private Animator _animator;
+
     [SerializeField]
     private Image _image;
+
     [SerializeField]
     private List<TimerData> _timerDataList;
+
+    [SerializeField]
     private string _animationName = "TimerShowSeconds";
+
     [SerializeField]
     private UnityEvent _onTimerEnd;
     private Coroutine _timerCoroutine;
-    public void startTimer(int index)
+
+    public void StartTimer(int index)
     {
         _timerCoroutine = StartCoroutine(TimerCoroutine(index));
     }
+
     private IEnumerator TimerCoroutine(int index)
     {
         while (index >= 0)
@@ -34,6 +40,7 @@ public class Timer : MonoBehaviour
         _onTimerEnd?.Invoke();
         _timerCoroutine = null;
     }
+
     public void StopTimer()
     {
         if (_timerCoroutine != null)
@@ -44,6 +51,7 @@ public class Timer : MonoBehaviour
         _image.sprite = null;
     }
 }
+
 [System.Serializable]
 public class TimerData
 {

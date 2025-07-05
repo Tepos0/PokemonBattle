@@ -1,40 +1,48 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private Slider _healthSlidr;
+    private Slider _healthSlider;
+
     [SerializeField]
     private float _initialHealth = 200f;
+
     [SerializeField]
     private UnityEvent<float> _onUpdateHealth;
+
     [SerializeField]
     private UnityEvent _onDefeated;
+
     [SerializeField]
     private UnityEvent<DamageTarget> _onTakeDamage;
-    private float _currentHealth;
-    public float CurrentHealth => _currentHealth;
-    public void InitializeHealth()
+
+    private float _currentHeath;
+
+    public float CurrentHealth => _currentHeath;
+
+    public void InitialHealth()
     {
-        _currentHealth = _initialHealth;
+        _currentHeath = _initialHealth;
         UpdateHealth();
     }
+
     private void UpdateHealth()
     {
-        _onUpdateHealth?.Invoke(_currentHealth / _initialHealth);
+        _onUpdateHealth?.Invoke(_currentHeath / _initialHealth);
     }
+
     public void TakeDamage(DamageTarget damageTarget)
     {
-        _currentHealth -= damageTarget.damage;
+        _currentHeath -= damageTarget.damage;
         _onTakeDamage?.Invoke(damageTarget);
-        if (_currentHealth < 0)
+        if (_currentHeath < 0)
         {
             _onDefeated?.Invoke();
-            _currentHealth = 0;
+            _currentHeath = 0;
         }
+        UpdateHealth();
     }
 }

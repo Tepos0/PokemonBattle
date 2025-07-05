@@ -18,7 +18,7 @@ public class BattleManager : MonoBehaviour
     private DamageTarget _damageTarget = new DamageTarget();
     public void AddFighter(Fighter fighter)
     {
-        MessageFrame.Instance.ShowMessage($"{fighter.name} has joined the battle!");
+        MessageFrame.Instance.ShowMessage($"{fighter.Name} has joined the battle!");
         _fighters.Add(fighter);
         CheckFighters();
     }
@@ -73,7 +73,7 @@ public class BattleManager : MonoBehaviour
             attacker.transform.LookAt(defender.transform);
             defender.transform.LookAt(attacker.transform);
             Attack attack = attacker.Attacks.GetRandomAttack();
-            MessageFrame.Instance.ShowMessage($"{attacker.name} attacks with {attack.attackTime}!");
+            MessageFrame.Instance.ShowMessage($"{attacker.Name} attacks with {attack.attackName}!");
             SoundManager.instance.Play(attack.soundName);
             attacker.CharacterAnimator.Play(attack.animationName);
             GameObject attackParticles = Instantiate(attack.particlesPrefab, attacker.transform.position, Quaternion.identity);
@@ -83,8 +83,8 @@ public class BattleManager : MonoBehaviour
             GameObject defendParticles = Instantiate(attack.hitParticlesPrefab, defender.transform.position, Quaternion.identity);
             defendParticles.transform.SetParent(defender.transform);
             _damageTarget.SetDamageTarget(damage, defender.transform);
-            defender.health.TakeDamage(_damageTarget);
-            if (defender.health.CurrentHealth <= 0)
+            defender.Health.TakeDamage(_damageTarget);
+            if (defender.Health.CurrentHealth <= 0)
             {
                 _fighters.Remove(defender);
             }
@@ -95,9 +95,9 @@ public class BattleManager : MonoBehaviour
     private void EndBattle(Fighter winner)
     {
         winner.transform.LookAt(Camera.main.transform);
-        MessageFrame.Instance.ShowMessage($"{winner.name} wins the battle!");
-        SoundManager.instance.Play(winner._winSoundName);
-        winner.CharacterAnimator.Play(winner._winAnimationName);
+        MessageFrame.Instance.ShowMessage($"{winner.Name} wins the battle!");
+        SoundManager.instance.Play(winner.WindSoundName);
+        winner.CharacterAnimator.Play(winner.WinAnimationName);
         _onBattleFinished?.Invoke();
     }
 }

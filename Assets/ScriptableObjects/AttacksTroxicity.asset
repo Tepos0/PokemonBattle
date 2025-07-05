@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b944b72e782908045ba5fafd8d4c8f56, type: 3}
   m_Name: AttacksTroxicity
   m_EditorClassIdentifier: 
-  attacks: []
+  attacks:
+  - attackName: Acido muriatico
+    minDamage: 15
+    maxDamage: 100
+    attackTime: 2
+    animationName: Attack1
+    soundName: Bubbles
+    hitParticlesPrefab: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7,
+      type: 3}
+    particlesPrefab: {fileID: 8205706795460263314, guid: 326e86d5729c54e479798cacab220bb2,
+      type: 3}
+  - attackName: "Pu\xF1o acido"
+    minDamage: 10
+    maxDamage: 200
+    attackTime: 2
+    animationName: Attack2
+    soundName: Splash
+    hitParticlesPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+      type: 3}
+    particlesPrefab: {fileID: 5137123306192418792, guid: 5a8d99fb95262ea458a7b580f2a1611c,
+      type: 3}
